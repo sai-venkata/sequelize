@@ -23,6 +23,6 @@ export const Product = db.define("product", {
 });
 
 
-db.authenticate({alter:true})
+db.authenticate({})
   .then(() => console.log("db connected sucessfully"))
   .catch((err) => console.log(err));

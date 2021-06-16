@@ -12,9 +12,20 @@ app.use(urlencoded({extended:true}))
 app.use(cors())
 
 
-app.get('/',(req,res)=>{
+app.get('/',async(req,res)=>{
+    
     res.send("<h1><center>health check</center></h1>");
 })
+
+app.get("/allUsers", async (req, res) => {
+  let allUsers = await User.findAll();
+  res.send(allUsers);
+});
+
+app.get("/allProducts", async (req, res) => {
+  let allProducts = await Product.findAll();
+  res.send(allProducts);
+});
 
 app.post('/userRegister',async(req,res)=>{
     const userInfo = {
